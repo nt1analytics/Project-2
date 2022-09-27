@@ -31,9 +31,10 @@ ii. **calendar.csv**
 <br>
 
 ## **Step 2: Transform Data**
-xxx:<br>
-
-TBC
+Before being able to consume data, it has to be cleaned. This process includes:<br>
+1. Removing any symbols such as (e.g. $,%,',', etc.)
+2. Dropping rows with null values.
+3. Converting the numerical columns from string to a number.
 <br>
 
 ## **Step 3: Load Data**
