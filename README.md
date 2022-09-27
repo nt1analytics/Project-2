@@ -1,6 +1,6 @@
 ![Seattle Airbnb](https://storage.googleapis.com/kaggle-datasets-images/393/804/669cd834cb82eb3f7fbded566dd02e92/dataset-cover.jpeg)
 # **Project 2 - Seattle Airbnb**
-For this project, we decided to look at airbnb data in Seattle. The two tables we intend to use are the calendar.csv and listings.csv joined with “listing_id” in the calendar table and “id” in the listings ktable. Our reason for linking these tables is to be able to compare the price in the calendars table with the various information in the listings table such as room type, square feet, zip code and reviews rating. After cleaning the relevant columns we plan to upload the data to PostgreSQL.
+The aim of this project is to investigate patterns of more or less successful airbnb locations within the Seattle, Washington area. The two .csv files were joined on the “listing_id” and “id” columns respectively. Numerous factors were cleaned and taken into consideration such as zip code, accommodation, host status, price and reviews rating. Relationships between the data can be investigated in PostgreSQL to potentially glean new insights into the statistically relevant operations of Seattle airbnbs.
 
 ## **Members**
 Jose Sandoval  &emsp; &emsp; Vanessa Kemp<br>
