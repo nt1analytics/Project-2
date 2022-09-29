@@ -40,7 +40,7 @@ number_of_reviews INT,
 review_scores_rating DECIMAL 
 );
 
-DROP TABLE IF EXISTS calendar
+DROP TABLE IF EXISTS type_and_price
 
 -- Creating the Table, setting primary key and types on columns. 
 
