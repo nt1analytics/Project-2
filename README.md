@@ -40,7 +40,7 @@ After our data was loaded and ready, there were a number of steps needed to prep
 4. Creating new data frames for reviews, host responses, and property types by selecting relevant columns from the intitial data frame.
 5. Checking datatypes and making conversions from strings to integers.
 6. Making conditions to eliminate invalid data points. e.g. Zipcodes can not have more or less characters than 5. Setting a condition to remove any zipcode not equal to 5 characters in length removes invalid zipcodes.
-7. Converting data types to be used in calculations and removing symbols such as ($,%,',', etc). e.g. Price, monthly price, and weekly price removing '$' and converting to an integer.
+7. Converting data types to be used in calculations and removing symbols such as ($,%,',', etc). e.g. Price, monthly price, and weekly price removing the dollar sign and converting to an integer.
 
 ## **Step 3: Load Data**
 The created SQL schema has four tables:<br>
