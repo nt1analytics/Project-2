@@ -9,55 +9,73 @@ Nick Taheri   &emsp; &emsp; &emsp;  Aidan Thompson
 ## **Data Source**
 Datasource: https://www.kaggle.com/datasets/airbnb/seattle
 
-## **Data Files**
-Two csv files downloaded and added to the 'Resource' folder for this project.<br>
+## **Step 1: Extraction**
+Two .csv files were utilized for this project. The files are located within the ‘Resource’ folder which were both acquired from https://www.kaggle.com/datasets/airbnb/seattle.
 
-•	**calendar.csv** : This file has detailed listings data in Seatle that has the accomodation, reviews and Airbnb host, listing and Property Information.<br>
-•	**listings.csv** : This file has detailed calendar data, availability and price in Seatle. <br>
+## **Step 2: Transform**
+Each of the .csv files were examined for relevance and usability to achieve the project’s target. The following lists the columns of each .csv file which were chosen to be cleaned using Pandas/Jupyter Notebooks.
 
-## **Step 1: Extract Data**
-Data extraction is based on the csv files in the resource folder and codes below:<br>
+•         	**calendar.csv** : The listing_id, available and price columns.
 
-i. **listings.csv**
-   ~~~~python
-   listings_file = "Resources/listings.csv"
-   listings_df = pd.read_csv(listings_file, encoding="utf8")
-   ~~~~
-ii. **calendar.csv**
-   ~~~~python	
-   calendar_file = "Resources/calendar.csv"
-   calendar_df = pd.read_csv(calendar_file, encoding="utf8")
-   ~~~~
-<br>
-The Kaggle dataset initially included a calendar.csv, listings.csv and reviews.csv file each containing a range of different data columns. It was decided that for the purposes of our analysis the reviews.csv file should not be used as it contained qualitative data such as reviewer names of airbnb's and their review comments. Data such as this would be difficult to draw any major conclusions from. From the calendar.csv, the most important data column for our purposes was the price listings for each airbnb. By using the listings_id column in the calendar.csv, joins can be made to the listings.csv table on the id column to compare the price from calendar.csv to many different variables contained in listings.csv. To make the above data extractions, Jupyter Notebook was used and pandas's read_csv function was used to load the raw csv's from our Resources folder.
+•         	**listings.csv** : The  id, host_response_rate, host_acceptance_rate, host_is_superhost, zipcode, price, number_of_reviews, review_scores_rating, property_type, room_type, accommodates, square_feet, weekly_price and monthly_price columns.
 
-## **Step 2: Transform Data**
-After our data was loaded and ready, there were a number of steps needed to prepare and clean the data before any analysis could be made:
+Detailed steps to clean and transform each .csv file:
 
-1. Removing NaN values and replacing NaN values for price with $0.
-2. Removing duplicates in the id or listings_id columns to avoid having duplicate primary keys. 
-3. Breaking down the listings.csv columns into multiple confined tables that have specific focus points. 
-4. Creating new data frames for reviews, host responses, and property types by selecting relevant columns from the intitial data frame.
-5. Checking datatypes and making conversions from strings to integers.
-6. Making conditions to eliminate invalid data points. e.g. Zipcodes can not have more or less characters than 5. Setting a condition to remove any zipcode not equal to 5 characters in length removes invalid zipcodes.
-7. Converting data types to be used in calculations and removing symbols such as ($,%,',', etc). e.g. Price, monthly price, and weekly price removing the dollar sign and converting to an integer.
+1 Import Dependencies
+1.1 Import Pandas
+1.2 from sqlalchemy import create_engine 
+1.3 from sqlalchemy import inspect
 
-## **Step 3: Load Data**
-The created SQL schema has four tables:<br>
+2. Create the path to the .csv file
+
+3. Read the .csv file into a data frame
+
+4. Create a copy with only the desired columns with .copy()
+
+5. Delete rows with missing information using .dropna()
+
+6. Delete all duplicates with .drop_duplicates() 
+
+7. View the data frame to ensure successful cleaning
+
+8. Ascertain data types of columns with .dtypes
+
+9. Convert columns to usable data types 
+9.1 Convert the date column to datetime with pd.to_datetime()
+9.2 Convert the string ‘price’ column to float using .astype(float)
+9.3 To convert the string ‘weekly_price’ and ‘monthly_price’ to numeric values, remove the currency signs with .replace() then convert to numeric using pd.to_numeric
+9.4 Convert  ‘accommodates’ and ‘square_feet’ with pd.to_numeric 
+
+10. Replace the NaN values in calendar.csv using .fillna(‘$0’)
+
+11. Filter the zipcode column with .str.len() == 5 to retain accurately input data
+
+12. Check the .csv data types have been successfully altered with .dtypes
+
+## **Step 3: Load**
+
+The process of loading data frames into pgAdmin4 is accomplished in Jupyter Notebooks. 
+
+Convert the data frames using .to_sql(). To confirm, query each data frame with pd.read_sql_query.head().
+
+Perform SQL joins of the data frames on the listing_id column.
+df = r””” SELECT df1.column_name, df2.column_name, df3.column_name, df4.column_name
+FROM df1
+JOIN df2 ON df1 = df2 
+JOIN df3 ON df1 = df3 
+JOIN df4 ON df1 = df4”””
+
+Check the join is successful using pd.read_sql_query.head().
+
+The created SQL schema has four tables due to the splitting of work between group members:<br>
  •	'calendar'<br>
  •	'listings_host'<br>
  •	'listings_reviews'<br>
  •	'type_and_price'<br>
-
-A PostgresSQL connection established by using sqlalchemy:<br>
-~~~~python
-from sqlalchemy import create_engine
-from sqlalchemy import inspect
-~~~~
-
-Then a proper postgresSQL protocol, username and password were utlities to fulfill the credential requirements. 
-
-Next, the engine is used to upload all the SQL tables.
+ 
+ Note: A postgresSQL protocal was employed to fulfill credintials requirements.
 
 ## Final Table
 ![AirBnb](Images/project.png)
+
+Utilizing SQL syntax in Jupyter Notebooks with the df = r”””code””” method or using pgAdmin4, the joined data frame is ready to be queried.
