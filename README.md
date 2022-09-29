@@ -32,11 +32,15 @@ ii. **calendar.csv**
 Our Kaggle dataset initially included a calendar.csv, listings.csv and reviews.csv file each containing a range of different data columns. We decided that for the purposes of our analysis we could not use the reviews.csv file as it contained qualitative data such as reviewer names of airbnb's and their review comments. Data such as this would be difficult to draw any major conclusions from. From the calendar.csv, the most important data column for our purposes was the price listings for each airbnb. By using the listings_id column in the calendar.csv we can join it to the listins.csv table on the id column and be able to compare the price from calendar.csv to many different variables contained in listings.csv. The dataset describes all listings activity of homestays in Seattle, WA since 2008. To make the above data extractions, we used Jupyter Notebook and pandas's read_csv function to load the raw csv's from our Resources folder.
 
 ## **Step 2: Transform Data**
-Before being able to consume data, it has to be cleaned. This process includes:<br>
-1. Removing any symbols such as (e.g. $,%,',', etc.)
-2. Dropping rows with null values.
-3. Converting the numerical columns from string to a number.
-<br>
+After our data was loaded and ready, there were a number of steps needed to prepare and clean the data before any analysis could be made:
+
+1. Removing NaN values and replacing NaN values for price with $0.
+2. Removing duplicates in the id or listings_id columns to avoid having duplicate primary keys. 
+3. Breaking down the listings.csv columns into multiple confined tables that have specific focus points. 
+4. Creating new data frames for reviews, host responses, and property types by selecting relevant columns from the intitial data frame.
+5. Checking datatypes and making conversions from strings to integers.
+6. Making conditions to eliminate invalid data points. e.g. Zipcodes can not have more or less characters than 5. Setting a condition to remove any zipcode not equal to 5 characters in length removes invalid zipcodes.
+7. Converting data types to be used in calculations and removing symbols such as ($,%,',', etc). e.g. Price, monthly price, and weekly price removing '$' and converting to an integer.
 
 ## **Step 3: Load Data**
 xxx:<br>
