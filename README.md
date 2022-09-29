@@ -57,5 +57,5 @@ from sqlalchemy import inspect
 
 Then a proper postgresSQL protocol, username and password were utlities to fulfill the credential requirements. 
 
-Next, the engine is used to populate all the SQL tables.
+Next, the engine is used to upload all the SQL tables.
 
