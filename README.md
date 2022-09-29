@@ -43,7 +43,19 @@ After our data was loaded and ready, there were a number of steps needed to prep
 7. Converting data types to be used in calculations and removing symbols such as ($,%,',', etc). e.g. Price, monthly price, and weekly price removing '$' and converting to an integer.
 
 ## **Step 3: Load Data**
-xxx:<br>
+The created SQL schema has four tables:<br>
+ - 'calendar'<br>
+ - 'listings_host'<br>
+ - 'listings_reviews'<br>
+ - 'type_and_price'<br>
 
-TBC
-<br>
+A PostgresSQL connection established using sqlalchemy:<br>
+~~~~python
+from sqlalchemy import create_engine
+from sqlalchemy import inspect
+~~~~
+
+Then a proper postgresSQL protocol, username and password were utlities to fulfill the credential requirements. 
+
+Next, the engine is used to populate all the SQL tables.
+
