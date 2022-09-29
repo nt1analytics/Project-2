@@ -59,3 +59,5 @@ Then a proper postgresSQL protocol, username and password were utlities to fulfi
 
 Next, the engine is used to upload all the SQL tables.
 
+## Final Table
+![AirBnb Table](Images/project 2.JPG)
