@@ -13,8 +13,15 @@ Two .csv files were utilized for this project. The files are located within the 
 Each of the .csv files were examined for relevance and usability to achieve the project’s target. The following lists the columns of each .csv file which were chosen to be cleaned using Pandas/Jupyter Notebooks.
 
 •         	**calendar.csv** : The listing_id, available and price columns.
-
+   ~~~~python	
+   calendar_file = "Resources/calendar.csv"
+   calendar_df = pd.read_csv(calendar_file, encoding="utf8")
+   ~~~~
 •         	**listings.csv** : The  id, host_response_rate, host_acceptance_rate, host_is_superhost, zipcode, price, number_of_reviews, review_scores_rating, property_type, room_type, accommodates, square_feet, weekly_price and monthly_price columns.
+   ~~~~python
+   listings_file = "Resources/listings.csv"
+   listings_df = pd.read_csv(listings_file, encoding="utf8")
+   ~~~~
 
 Detailed steps to clean and transform each .csv file:
 
