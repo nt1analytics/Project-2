@@ -44,12 +44,12 @@ After our data was loaded and ready, there were a number of steps needed to prep
 
 ## **Step 3: Load Data**
 The created SQL schema has four tables:<br>
- - 'calendar'<br>
- - 'listings_host'<br>
- - 'listings_reviews'<br>
- - 'type_and_price'<br>
+ •	'calendar'<br>
+ •	'listings_host'<br>
+ •	'listings_reviews'<br>
+ •	'type_and_price'<br>
 
-A PostgresSQL connection established using sqlalchemy:<br>
+A PostgresSQL connection established by using sqlalchemy:<br>
 ~~~~python
 from sqlalchemy import create_engine
 from sqlalchemy import inspect
