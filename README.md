@@ -29,6 +29,7 @@ ii. **calendar.csv**
    calendar_df = pd.read_csv(calendar_file, encoding="utf8")
    ~~~~
 <br>
+Our Kaggle dataset included initially included a calendar.csv, listings.csv and reviews.csv file each containing a range of different data columns. We decided that for the purposes of our analysis we could not use the reviews.csv file as it contained qualitative data such as reviewer names of airbnb's and their review comments. Data such as this would be difficult to draw any major conclusions from. From the calendar.csv, the most important data column for our purposes was the price listings for each airbnb. By using the listings_id column in the calendar.csv we can join it to the listins.csv table on the id column and be able to compare the price from calendar.csv to many different variables contained in listings.csv. The dataset describes all listings activity of homestays in Seattle, WA since 2008. To make the above data extractions, we used Jupyter Notebook and pandas's read_csv function to load the raw csv's from our Resources folder.
 
 ## **Step 2: Transform Data**
 Before being able to consume data, it has to be cleaned. This process includes:<br>
