@@ -6,9 +6,6 @@ The aim of this project is to investigate patterns of more or less successful ai
 Jose Sandoval  &emsp; &emsp; Vanessa Kemp<br>
 Nick Taheri   &emsp; &emsp; &emsp;  Aidan Thompson
 
-## **Data Source**
-Datasource: https://www.kaggle.com/datasets/airbnb/seattle
-
 ## **Step 1: Extraction**
 Two .csv files were utilized for this project. The files are located within the ‘Resource’ folder which were both acquired from https://www.kaggle.com/datasets/airbnb/seattle.
 
@@ -22,9 +19,10 @@ Each of the .csv files were examined for relevance and usability to achieve the 
 Detailed steps to clean and transform each .csv file:
 
 1 Import Dependencies
-1.1 Import Pandas
-1.2 from sqlalchemy import create_engine 
-1.3 from sqlalchemy import inspect
+
+Import Pandas
+from sqlalchemy import create_engine 
+from sqlalchemy import inspect
 
 2. Create the path to the .csv file
 
@@ -41,10 +39,11 @@ Detailed steps to clean and transform each .csv file:
 8. Ascertain data types of columns with .dtypes
 
 9. Convert columns to usable data types 
-9.1 Convert the date column to datetime with pd.to_datetime()
-9.2 Convert the string ‘price’ column to float using .astype(float)
-9.3 To convert the string ‘weekly_price’ and ‘monthly_price’ to numeric values, remove the currency signs with .replace() then convert to numeric using pd.to_numeric
-9.4 Convert  ‘accommodates’ and ‘square_feet’ with pd.to_numeric 
+
+Convert the date column to datetime with pd.to_datetime()
+Convert the string ‘price’ column to float using .astype(float)
+To convert the string ‘weekly_price’ and ‘monthly_price’ to numeric values, remove the currency signs with .replace() then convert to numeric using pd.to_numeric
+Convert  ‘accommodates’ and ‘square_feet’ with pd.to_numeric 
 
 10. Replace the NaN values in calendar.csv using .fillna(‘$0’)
 
